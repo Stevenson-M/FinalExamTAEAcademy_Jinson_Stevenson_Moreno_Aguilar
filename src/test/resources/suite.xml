@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test suite ESPN">
+    
+    <listeners>
+        <listener class-name="org.globantAcademy.utils.Listener"/>
+    </listeners>
+    
+    <parameter name="url" value="https://www.espnqa.com/?src=com&amp;_adblock=true&amp;espn=cloud"></parameter>
+    <parameter name="browser" value="chrome"></parameter>
+
+
+    <test name="Espn Logout Test" enabled="true" >
+        <classes>
+
+        </classes>
+    </test>
+
+
+
+</suite>
