@@ -1,6 +1,7 @@
 package org.globantAcademy.ui.pages;
 
 import com.github.javafaker.Faker;
+import com.github.javafaker.Superhero;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -77,9 +78,9 @@ public class MainPage extends BasePage {
 
     /********** Banner molesto ************/
 
-
-    /***Meter web elements en uns lista****/
-
+    public MainPage(WebDriver driver) {
+        super(driver);
+    }
 
     public String getUserName() {
         return this.userName = userName;
@@ -90,7 +91,7 @@ public class MainPage extends BasePage {
     }
 
     public void clickWatchButton() {
-        waitForVisibility(watchButton, 40);
+        waitForVisibility(watchButton, 30);
         clickElement(watchButton);
     }
 
@@ -111,9 +112,6 @@ public class MainPage extends BasePage {
 
     /********** Banner molesto ************/
 
-    public void switchToBannerIframe() {
-        super.getDriver().switchTo().frame(bannerIframe);
-    }
 
     public void goOutFromBannerIframe() {
         super.getDriver().switchTo().defaultContent();
@@ -122,7 +120,7 @@ public class MainPage extends BasePage {
     public boolean verifyBanner() {
         boolean isBanner = true;
         try {
-            waitForVisibility(bannerSection);
+            super.waitForPresenceOfElement(".promo-banner-container iframe");
         } catch (TimeoutException e) {
             isBanner = false;
         }
@@ -131,7 +129,10 @@ public class MainPage extends BasePage {
 
     public void closeBanner() {
         if (this.verifyBanner()) {
+            super.getDriver().switchTo().frame(this.bannerIframe);
+            super.waitForVisibility(this.bannerSection);
             super.clickElement(this.bannerCloseButton);
+            this.goOutFromBannerIframe();
         }
     }
 
@@ -240,8 +241,22 @@ public class MainPage extends BasePage {
         return true;
     }
 
+
+    public boolean checkCreateUser() {
+        return createUser();
+    }
+
+    public boolean validateGlobalUser() {
+        waitForVisibility(globalUserMenu);
+        return globalUserMenu.isDisplayed();
+    }
+
     public void hoverGlobalUserMenu() {
         hoverElement(globalUserMenu);
+    }
+
+    public void clickGlobalUserMenu() {
+        clickElement(globalUserMenu);
     }
 
     public String checkNavUserMenuWelcomeText() {
@@ -255,11 +270,7 @@ public class MainPage extends BasePage {
     }
 
     public void clickLogOutButton() {
-        clickElement(LogOutButton);
+        waitForVisibility(LogOutButton,10);
+        super.clickElement(LogOutButton);
     }
-
-    public MainPage(WebDriver driver) {
-        super(driver);
-    }
-
 }

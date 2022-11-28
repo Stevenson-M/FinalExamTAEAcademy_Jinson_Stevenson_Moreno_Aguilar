@@ -1,5 +1,6 @@
-package org.globantAcademy.configuration;
+package configuration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -7,16 +8,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.List;
+
 
 import static org.openqa.selenium.support.PageFactory.initElements;
 
 public abstract class WebOperations {
     private final WebDriver driver;
     private final WebDriverWait wait;
-    private long timeout = 10l;
-
-
+    private final long timeout = 10l;
 
     public WebOperations(WebDriver driver) {
         this.driver = driver;
@@ -25,7 +24,7 @@ public abstract class WebOperations {
     }
 
     protected WebDriver getDriver() {
-        return driver;
+        return this.driver;
     }
 
     public void clickElement(WebElement element) {
@@ -54,11 +53,14 @@ public abstract class WebOperations {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-
-
     public void waitForClickable(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
+    public void waitForPresenceOfElement(String locator) {
+        this.wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locator)));
+    }
+
 }
 
 

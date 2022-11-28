@@ -27,6 +27,10 @@ public class WatchPage extends BasePage {
     @FindBy (css = "svg.icon--color")
     private WebElement CloseButtonCarouselPopUp;
 
+    public WatchPage(WebDriver driver) {
+        super(driver);
+    }
+
     public Boolean checkCarouselsArePresent() {
         return carousels.size() > 0;
     }
@@ -46,6 +50,7 @@ public class WatchPage extends BasePage {
     }
 
     public void clickSecondCarouselCard() {
+        waitForVisibility(secondCarouselCard, 5);
         clickElement(secondCarouselCard);
     }
 
@@ -69,6 +74,7 @@ public class WatchPage extends BasePage {
     }
 
     public boolean checkCarouselCloseBottomPopUpIsPresent() {
+        waitForVisibility(CloseButtonCarouselPopUp, 5);
         return CloseButtonCarouselPopUp.isDisplayed();
     }
 
@@ -76,16 +82,13 @@ public class WatchPage extends BasePage {
         clickElement(CloseButtonCarouselPopUp);
     }
 
-    public void returnToMainPage() {
-        getDriver().navigate().back();
+    public MainPage returnToMainPage() {
+        super.getDriver().navigate().back();
+        return new MainPage(getDriver());
     }
 
     public void refreshPage() {
         getDriver().navigate().refresh();
-    }
-
-    public WatchPage(WebDriver driver) {
-        super(driver);
     }
 
 }

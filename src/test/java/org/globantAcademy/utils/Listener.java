@@ -7,9 +7,7 @@ import org.testng.ITestResult;
 
 public class Listener implements ITestListener {
     @Override
-    public void onTestStart(ITestResult iTestResult) {
-
-    }
+    public void onTestStart(ITestResult iTestResult) {}
 
     @Override
     public void onTestSuccess(ITestResult result) {
@@ -22,22 +20,14 @@ public class Listener implements ITestListener {
     }
 
     @Override
-    public void onTestSkipped(ITestResult iTestResult) {
-
-    }
+    public void onTestSkipped(ITestResult iTestResult) {}
 
     @Override
-    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
-
-    }
+    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {}
 
     @Override
-    public void onStart(ITestContext iTestContext) {
-
-    }
+    public void onStart(ITestContext iTestContext) {}
 
     @Override
-    public void onFinish(ITestContext iTestContext) {
-
-    }
+    public void onFinish(ITestContext iTestContext) {}
 }
