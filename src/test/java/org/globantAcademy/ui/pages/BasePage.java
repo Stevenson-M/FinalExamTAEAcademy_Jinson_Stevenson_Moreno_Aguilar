@@ -1,4 +1,4 @@
-package org.globantAcademy.ui.pages;
+package org.globantAcademy.ui.screens.pages;
 
 import configuration.WebOperations;
 import org.openqa.selenium.WebDriver;

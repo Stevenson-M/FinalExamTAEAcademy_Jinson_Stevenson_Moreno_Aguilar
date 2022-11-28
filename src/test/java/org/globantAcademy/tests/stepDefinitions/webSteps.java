@@ -7,9 +7,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import configuration.WebDriver;
-import org.globantAcademy.ui.pages.MainPage;
+import org.globantAcademy.ui.screens.pages.MainPage;
 import org.globantAcademy.reporting.Reporter;
-import org.globantAcademy.ui.pages.WatchPage;
+import org.globantAcademy.ui.screens.pages.WatchPage;
 
 import org.testng.Assert;
 

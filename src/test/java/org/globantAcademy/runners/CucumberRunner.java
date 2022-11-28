@@ -10,6 +10,6 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/java/org/globantAcademy/tests/features",
         glue = {"org.globantAcademy.tests.stepDefinitions"})
 
-public class CucumberRunnerTestWeb extends AbstractTestNGCucumberTests {
+public class CucumberRunner extends AbstractTestNGCucumberTests {
 
 }
