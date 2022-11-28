@@ -1,18 +1,17 @@
 package org.globantAcademy.configuration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 
-public class Driver {
+public class WebDriver {
 
-    private WebDriver driver;
+    private org.openqa.selenium.WebDriver driver;
 
-    public Driver(String browser) {
+    public WebDriver(String browser) {
         switch (browser.toLowerCase()) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
@@ -33,7 +32,7 @@ public class Driver {
         }
     }
 
-    public WebDriver getDriver() {
+    public org.openqa.selenium.WebDriver getDriver() {
         return driver;
     }
 }

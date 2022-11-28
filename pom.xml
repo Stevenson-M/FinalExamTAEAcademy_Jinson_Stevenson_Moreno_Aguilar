@@ -21,10 +21,10 @@
     <webdrivermanager.version>5.3.1</webdrivermanager.version>
     <selenium.version>4.6.0</selenium.version>
     <slf4j.version>2.0.4</slf4j.version>
-    <javaclient.version>8.2.0</javaclient.version>
+    <javaclient.version>7.2.0</javaclient.version>
     <cucumber.version>7.8.1</cucumber.version>
     <cucumberTestNG.version>7.9.0</cucumberTestNG.version>
-    <javafaker.version>0.15</javafaker.version>
+    <javafaker.version>1.0.2</javafaker.version>
   </properties>
 
   <dependencies>
