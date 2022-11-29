@@ -3,7 +3,7 @@ package org.globantAcademy.ui.screens;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-
+import org.globantAcademy.ui.screens.TutorialScreen;
 
 
 /**
@@ -12,6 +12,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
  * @author Hans.Marquez
  */
 public class DashBoardScreen extends BaseScreen {
+
+    private TutorialScreen tutorialScreen;
 
     /**
      * Constructor method.
@@ -83,6 +85,11 @@ public class DashBoardScreen extends BaseScreen {
         }
         click(plansOptionButton);
         return new PlansOptionScreen(getDriver());
+    }
+
+    public DashBoardScreen loadDashBoardScreen() {
+        tutorialScreen.startPermissionsProcess();
+        return tutorialScreen.shareLocationPermissions();
     }
 
 }

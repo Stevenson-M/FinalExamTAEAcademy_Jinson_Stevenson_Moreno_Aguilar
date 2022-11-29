@@ -1,6 +1,7 @@
+@web
 Feature: ESPN webpage navigation review procedure
 
-        We are going to verify several components of the ESPN page
+        We are going to verify several elements of the ESPN page
         As users of the website
         We will create a user and navigate within different parts of the website
 
@@ -28,7 +29,6 @@ Feature: ESPN webpage navigation review procedure
                 Then I should navigate to the Watch page and validate its elements
                 And I should be able to return to the main page
                 Then I should see the user icon
-
 
         Scenario: Verify Welcome texts when logged
                 Given I create a new user successfully

@@ -15,11 +15,11 @@ import static org.openqa.selenium.support.PageFactory.initElements;
 public abstract class WebOperations {
     private final WebDriver driver;
     private final WebDriverWait wait;
-    private final long timeout = 10l;
+    private final long timeout = 10L;
 
     public WebOperations(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        this.wait = new WebDriverWait(driver, timeout);
         initElements(driver, this);
     }
 
@@ -64,5 +64,3 @@ public abstract class WebOperations {
 
 
 }
-
-

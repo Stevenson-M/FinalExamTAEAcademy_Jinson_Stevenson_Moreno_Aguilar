@@ -80,6 +80,7 @@ public class MapScreen extends BaseScreen {
      * open category list menu.
      */
     public void clickListCategories() {
+        waitForVisibility(showListButton);
         click(categoryList);
     }
 

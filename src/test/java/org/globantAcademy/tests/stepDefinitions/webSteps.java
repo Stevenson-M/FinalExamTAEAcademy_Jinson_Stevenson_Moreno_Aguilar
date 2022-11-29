@@ -2,6 +2,7 @@ package org.globantAcademy.tests.stepDefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -19,7 +20,7 @@ public class webSteps {
 
     private MainPage mainPage;
 
-    private WatchPage watchPage;
+   private WatchPage watchPage;
 
     private static final String URL = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
 
@@ -27,15 +28,25 @@ public class webSteps {
 
 
     @Before
-    public static void setUp() {
-        Reporter.info("Deleting all cookies");
-        driver = new WebDriver();
-        driver.getDriver().manage().deleteAllCookies();
+    public static void setUp(Scenario scenario) {
+        scenario.getSourceTagNames().stream().forEach(tag -> {
+            if (tag.equals("@web")) {
+
+                Reporter.info("Deleting all cookies");
+                driver = new WebDriver();
+                driver.getDriver().manage().deleteAllCookies();
+            }
+        });
     }
 
     @After
-    public static void tearDown() {
-        driver.getDriver().quit();
+    public static void tearDown(Scenario scenario) {
+        scenario.getSourceTagNames().stream().forEach(tag -> {
+            if (tag.equals("@web")) {
+                Reporter.info("Closing the browser");
+                driver.getDriver().quit();
+            }
+        });
     }
 
 
@@ -124,7 +135,8 @@ public class webSteps {
     @When("I click on the Watch button")
     public void i_click_on_the_watch_button() {
         Reporter.info("Going into watch page...");
-        watchPage  = mainPage.goToWatchPage();
+
+        mainPage.clickWatchButton();
     }
 
     @Then("I should navigate to the Watch page and validate its elements")

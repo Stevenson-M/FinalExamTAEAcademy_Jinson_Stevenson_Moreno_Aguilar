@@ -1,4 +1,4 @@
-package util;
+package org.globantAcademy.utils.mobileCapabilities;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
