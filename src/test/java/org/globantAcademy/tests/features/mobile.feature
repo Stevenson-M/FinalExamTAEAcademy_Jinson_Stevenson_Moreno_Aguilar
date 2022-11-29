@@ -1,8 +1,9 @@
 @mobile
-Feature: Disney app performance review
-        In order to verify several features in the Disney app
-        As a Disney app user
-        I want to navigate to several sections in the application
+Feature: Disney app navigation review
+
+        We are going to verify several elements of the Disney app
+        As users of the app
+        We will navigate within different parts of the app
 
         Background:
                 Given I'm in the Dashboard screen
