@@ -1,4 +1,4 @@
-package org.globantAcademy.ui.screens.pages;
+package org.globantAcademy.ui.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +10,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Class that represents the watch page of the application with the elements and methods to interact with them.
+ */
 public class WatchPage extends BasePage {
 
     @FindBy(css = "section.Carousel")
@@ -27,14 +30,26 @@ public class WatchPage extends BasePage {
     @FindBy (css = "svg.icon--color")
     private WebElement CloseButtonCarouselPopUp;
 
+    /**
+     * Constructor method that initializes the driver.
+     * @param driver WebDriver
+     */
     public WatchPage(WebDriver driver) {
         super(driver);
     }
 
+    /**
+     * Method that checks if there is a carousel in the page.
+     * @return boolean true if there is a carousel in the page, false if there is not.
+     */
     public Boolean checkCarouselsArePresent() {
         return carousels.size() > 0;
     }
 
+    /**
+     * Method that checks if there is a carousel in the page with titles.
+     * @return boolean true if there is a carousel in the page, false if there is not.
+     */
     public boolean checkAllCarouselCardsTitleIsPresent() {
         List<Boolean> carouselCardsTitle = new ArrayList<>();
         carouselCards.stream().forEach(element -> {carouselCardsTitle.add(element.findElement(By.cssSelector("h2.WatchTile__Title")).isEnabled());
@@ -42,6 +57,10 @@ public class WatchPage extends BasePage {
         return !carouselCardsTitle.contains(false);
     }
 
+    /**
+     * Method that checks if there is a carousel in the page with descriptions.
+     * @return boolean true if there is a carousel in the page, false if there is not.
+     */
     public boolean checkAllCarouselCardsDescriptionIsPresent() {
         List<Boolean> carouselCardsDescription = new ArrayList<>();
         carouselCards.stream().forEach(element -> {carouselCardsDescription.add(element.findElement(By.cssSelector(".WatchTile__Meta")).isEnabled());
@@ -49,11 +68,17 @@ public class WatchPage extends BasePage {
         return !carouselCardsDescription.contains(false);
     }
 
+    /**
+     * Method that clicks on the second card of the carousel.
+     */
     public void clickSecondCarouselCard() {
         waitForVisibility(secondCarouselCard, 5);
         clickElement(secondCarouselCard);
     }
 
+    /**
+     * Method that goes to the carousel pop up.
+     */
     String MainWindow = getDriver().getWindowHandle();
 
     public void switchToCarouselPopUp(){
@@ -73,20 +98,33 @@ public class WatchPage extends BasePage {
         getDriver().switchTo().window(MainWindow);
     }
 
+    /**
+     * Method that checks if the carousel pop up close button is present.
+     */
     public boolean checkCarouselCloseBottomPopUpIsPresent() {
         waitForVisibility(CloseButtonCarouselPopUp, 5);
         return CloseButtonCarouselPopUp.isDisplayed();
     }
 
+    /**
+     * Method that clicks on the carousel pop up close button.
+     */
     public void clickCloseButtonCarouselPopUp() {
         clickElement(CloseButtonCarouselPopUp);
     }
 
+    /**
+     * Method that go back to the main page
+     * @return MainPage
+     */
     public MainPage returnToMainPage() {
         super.getDriver().navigate().back();
         return new MainPage(getDriver());
     }
 
+    /**
+     * Method that refresh the page
+     */
     public void refreshPage() {
         getDriver().navigate().refresh();
     }

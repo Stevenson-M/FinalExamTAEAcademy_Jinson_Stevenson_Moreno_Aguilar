@@ -3,8 +3,6 @@ package org.globantAcademy.ui.screens;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.globantAcademy.ui.screens.TutorialScreen;
-
 
 /**
  * DashBoard screen.
@@ -87,6 +85,11 @@ public class DashBoardScreen extends BaseScreen {
         return new PlansOptionScreen(getDriver());
     }
 
+    /**
+     * Navigate to dashBoard Screen from Tutorial Screen.
+     *
+     * @author Hans.Marquez
+     */
     public DashBoardScreen loadDashBoardScreen() {
         tutorialScreen.startPermissionsProcess();
         return tutorialScreen.shareLocationPermissions();

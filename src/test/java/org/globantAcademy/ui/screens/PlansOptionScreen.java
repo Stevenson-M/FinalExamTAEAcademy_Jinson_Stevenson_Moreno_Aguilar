@@ -49,8 +49,6 @@ public class PlansOptionScreen extends BaseScreen {
         } else {
             return false;
         }
-
     }
-
 
 }

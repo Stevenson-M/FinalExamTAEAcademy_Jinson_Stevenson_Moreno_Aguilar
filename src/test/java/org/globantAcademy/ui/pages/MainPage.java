@@ -1,4 +1,4 @@
-package org.globantAcademy.ui.screens.pages;
+package org.globantAcademy.ui.pages;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.TimeoutException;
@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+/**
+ * Class that represents the main page of the application with the elements and methods to interact with them.
+ */
 public class MainPage extends BasePage {
 
     private static String userName;
@@ -61,8 +64,6 @@ public class MainPage extends BasePage {
     @FindBy(css = "div.global-user:last-child ul.account-management > li:last-child > a")
     private WebElement LogOutButton;
 
-
-    /********** Banner molesto ************/
     @FindBy(css = ".promo-banner-container iframe")
     private WebElement bannerIframe;
 
@@ -72,47 +73,70 @@ public class MainPage extends BasePage {
     @FindBy(css = "div.PromoBanner__CloseBtn")
     private WebElement bannerCloseButton;
 
-    /********** Banner molesto ************/
-
+    /**
+     * Constructor method that initializes the driver.
+     * @param driver WebDriver
+     */
     public MainPage(WebDriver driver) {
         super(driver);
     }
 
+    /**
+     * Method that returns the user name.
+     * @return String
+     */
     public String getUserName() {
         return this.userName = userName;
     }
 
+     /**
+     * Method that sets the user name.
+     * @param userName String
+     */
     public void setUserName(String userName) {
         this.userName = userName;
     }
 
+    /**
+     * Method that clicks on the watch button.
+     */
     public void clickWatchButton() {
         waitForVisibility(watchButton, 30);
         clickElement(watchButton);
     }
 
+    /**
+     * Method that goes to the watch page.
+     */
     public WatchPage goToWatchPage() {
         clickWatchButton();
         return new WatchPage(getDriver());
     }
 
+    /**
+     * Method that refreshes the page.
+     */
     public void refreshPage() {
         getDriver().navigate().refresh();
     }
 
-
+    /**
+     * Method that changes to the banner iframe.
+     */
     public void changeToIframe() {
         getDriver().switchTo().frame(loginIframe);
     }
 
-
-    /********** Banner molesto ************/
-
-
+    /**
+     * Method that changes from the banner iframe.
+     */
     public void goOutFromBannerIframe() {
         super.getDriver().switchTo().defaultContent();
     }
 
+    /**
+     * Method that validates if the banner is displayed.
+     */
     public boolean verifyBanner() {
         boolean isBanner = true;
         try {
@@ -123,6 +147,9 @@ public class MainPage extends BasePage {
         return isBanner;
     }
 
+    /**
+     * Method that closes the banner.
+     */
     public void closeBanner() {
         if (this.verifyBanner()) {
             super.getDriver().switchTo().frame(this.bannerIframe);
@@ -132,92 +159,149 @@ public class MainPage extends BasePage {
         }
     }
 
-    /********** Banner molesto ************/
-
+    /**
+     * Method that clicks on the login button.
+     */
     public void clickLoginMainPageButton() {
         clickElement(LoginMainPageButton);
     }
 
+    /**
+     * Method that checks the espn logo.
+     */
     public boolean checkEspnLogo() {
         waitForVisibility(EspnLogo);
         return EspnLogo.isDisplayed();
     }
 
+    /**
+     * Method that clicks on the login button in the iframe.
+     */
     public boolean checkLoginIframeButton() {
         waitForVisibility(LoginIframeButton);
         return LoginIframeButton.isDisplayed();
     }
 
+    /**
+     * Method that checks the sing up button in the iframe.
+     */
     public boolean checkSingUpIframeButton() {
         waitForVisibility(SingUpIframeButton);
         return SingUpIframeButton.isDisplayed();
     }
 
+    /**
+     * Method that clicks on the sing up button in the iframe.
+     */
     public void clickSingUpIframeButton() {
         clickElement(SingUpIframeButton);
     }
 
+    /**
+     * Method that checks the create account title in the iframe.
+     */
     public String checkCreateAccountTitle() {
         waitForVisibility(createAccountTitle);
         return createAccountTitle.getText();
     }
 
+    /**
+     * Method that checks the first name input in the iframe.
+     */
     public boolean checkFirstNameInputSingUpIframe() {
         waitForVisibility(firstNameInputSingUpIframe);
         return firstNameInputSingUpIframe.isDisplayed();
     }
 
+    /**
+     * Method that checks the last name input in the iframe.
+     */
     public boolean checkLastNameInputSingUpIframe() {
         waitForVisibility(lastNameInputSingUpIframe);
         return lastNameInputSingUpIframe.isDisplayed();
     }
 
+    /**
+     * Method that checks the email input in the iframe.
+     */
     public boolean checkEmailInputSingUpIframe() {
         waitForVisibility(emailInputSingUpIframe);
         return emailInputSingUpIframe.isDisplayed();
     }
 
+    /**
+     * Method that checks the password input in the iframe.
+     */
     public boolean checkPasswordInputSingUpIframe() {
         waitForVisibility(passwordInputSingUpIframe);
         return passwordInputSingUpIframe.isDisplayed();
     }
 
+    /**
+     * Method that checks the sing up confirmation button in the iframe.
+     */
     public boolean checkSingUpConfirmationIframeButton() {
         waitForVisibility(singUpConfirmationIframeButton);
         return singUpConfirmationIframeButton.isDisplayed();
     }
 
+    /**
+     * Method that checks the close sing up button in the iframe.
+     */
     public boolean checkCloseSingUpIframeButton() {
         waitForVisibility(closeSingUpIframeButton);
         return closeSingUpIframeButton.isDisplayed();
     }
 
+    /**
+     * Method that clicks on the first name input in the iframe.
+     */
     public void clickFirstNameInputSingUpIframe() {
         clickElement(firstNameInputSingUpIframe);
     }
 
+    /**
+     * Method that clicks on the last name input in the iframe.
+     */
     public void clickLastNameInputSingUpIframe() {
         clickElement(lastNameInputSingUpIframe);
     }
 
+    /**
+     * Method that clicks on the email input in the iframe.
+     */
     public void clickEmailInputSingUpIframe() {
         clickElement(emailInputSingUpIframe);
     }
 
+    /**
+     * Method that creates a random email.
+     * @return String email
+     */
     public String emailRandom() {
         String email = "test.stevenson.prueba" + (int) (Math.random() * 100000) + "@gmail.com";
 
         return email;
     }
 
+    /**
+     * Method that clicks on the password input in the iframe.
+     */
     public void clickPasswordInputSingUpIframe() {
         clickElement(passwordInputSingUpIframe);
     }
 
+    /**
+     * Method that clicks on the sing up confirmation button in the iframe.
+     */
     public void clickSingUpConfirmationIframeButton() {
         clickElement(singUpConfirmationIframeButton);
     }
 
+    /**
+     * Method that creates an user.
+     * Returns boolean true if the user is created.
+     */
     public boolean createUser() {
         Faker faker = new Faker();
 
@@ -238,33 +322,57 @@ public class MainPage extends BasePage {
     }
 
 
+    /**
+     * Method that checks if the user is created.
+     * Returns boolean true if the user is created.
+     */
     public boolean checkCreateUser() {
         return createUser();
     }
 
+    /**
+     * Method that validates if the user icon is displayed.
+     */
     public boolean validateGlobalUser() {
         waitForVisibility(globalUserMenu);
         return globalUserMenu.isDisplayed();
     }
 
+    /**
+     * Method that hover on the user icon.
+     */
     public void hoverGlobalUserMenu() {
         hoverElement(globalUserMenu);
     }
 
+    /**
+     * Method that clicks on the global user menu.
+     */
     public void clickGlobalUserMenu() {
         clickElement(globalUserMenu);
     }
 
+    /**
+     * Method that checks the navbar user welcome message.
+     * @return String welcomeMessage
+     */
     public String checkNavUserMenuWelcomeText() {
         return welcomeUserMenuText.getText();
     }
 
+    /**
+     * Method that checks the navbar user welcome message with the user name.
+     * @return String welcomeMessage with the user name
+     */
     public String getWelcomeMessageInNav() {
         waitForVisibility(welcomeUserMenuText);
         return "Welcome" + getUserName() + "!";
 
     }
 
+    /**
+     * Method that clicks the logout button.
+     */
     public void clickLogOutButton() {
         waitForVisibility(LogOutButton,10);
         super.clickElement(LogOutButton);
