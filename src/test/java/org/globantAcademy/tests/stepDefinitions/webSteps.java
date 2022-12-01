@@ -15,6 +15,7 @@ import org.globantAcademy.ui.pages.WatchPage;
 import org.testng.Assert;
 
 import static java.lang.String.format;
+import static java.lang.Thread.sleep;
 
 /**
  * Step definitions for the web tests.
@@ -135,21 +136,12 @@ public class webSteps {
     }
 
   /**
-   * Method that fills the sign up modal.
+   * Method that fills the sign up modal and creates an account.
    */
-  @And("I fill the form with valid data")
+  @Then("I fill the form with valid data and create a new user successfully")
     public void i_fill_the_form_with_valid_data() {
         mainPage.createUser();
   }
-
-    /**
-     * Method that validates the sign up.
-     */
-    @Then("I create a new user")
-    public void i_should_see_the_user_created() {
-        Reporter.info("Validating user created...");
-        Assert.assertTrue(mainPage.checkCreateUser(), "User is not created");
-    }
 
     /**
      * Method that creates a new user.
@@ -168,8 +160,7 @@ public class webSteps {
     @When("I click on the Watch button")
     public void i_click_on_the_watch_button() {
         Reporter.info("Going into watch page...");
-
-        mainPage.clickWatchButton();
+        watchPage = mainPage.goToWatchPage();
     }
 
     /**
@@ -235,7 +226,7 @@ public class webSteps {
     /**
      * Method that validates that allows to log out.
      */
-    @When("I click on the logout button")
+    @And("when I click on the logout button")
     public void i_click_on_the_logout_button() {
         Reporter.info("Clicking logout button...");
         mainPage.refreshPage();

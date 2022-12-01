@@ -20,8 +20,7 @@ Feature: ESPN webpage navigation review procedure
         Scenario: Validate User creation
                 Given I am in the login modal
                 When I click on the sign up button
-                And I fill the form with valid data
-                Then I create a new user
+                Then I fill the form with valid data and create a new user successfully
 
         Scenario: Validate WatchPage
                 Given I create a new user successfully
@@ -30,16 +29,16 @@ Feature: ESPN webpage navigation review procedure
                 And I should be able to return to the main page
                 Then I should see the user icon
 
-        Scenario: Verify Welcome texts when logged
+        Scenario: Verify Welcome texts when logged in and out
                 Given I create a new user successfully
                 When I move the mouse over the User menu icon
                 Then The welcome text in the menu is displayed along with my name
-
-        Scenario: Verify Welcome texts when logged out
-                Given I create a new user successfully
-                When I click on the logout button
+                And when I click on the logout button
                 And I move the mouse over the User menu icon after logout
                 Then The welcome text in the menu is displayed without the user name
+
+
+
 
 
 

@@ -43,6 +43,7 @@ public class WatchPage extends BasePage {
      * @return boolean true if there is a carousel in the page, false if there is not.
      */
     public Boolean checkCarouselsArePresent() {
+        waitForVisibility(carousels.get(0) , 10);
         return carousels.size() > 0;
     }
 
@@ -102,7 +103,8 @@ public class WatchPage extends BasePage {
      * Method that checks if the carousel pop up close button is present.
      */
     public boolean checkCarouselCloseBottomPopUpIsPresent() {
-        waitForVisibility(CloseButtonCarouselPopUp, 5);
+        waitForVisibility(CloseButtonCarouselPopUp, 10);
+        waitForClickable(CloseButtonCarouselPopUp);
         return CloseButtonCarouselPopUp.isDisplayed();
     }
 
@@ -122,12 +124,7 @@ public class WatchPage extends BasePage {
         return new MainPage(getDriver());
     }
 
-    /**
-     * Method that refresh the page
-     */
-    public void refreshPage() {
-        getDriver().navigate().refresh();
-    }
+
 
 }
 

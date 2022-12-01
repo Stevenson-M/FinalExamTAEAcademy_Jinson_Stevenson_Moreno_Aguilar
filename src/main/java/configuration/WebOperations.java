@@ -104,4 +104,13 @@ public abstract class WebOperations {
     public void waitForPresenceOfElement(String locator) {
         this.wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(locator)));
     }
+
+    /**
+     * Method that refresh the page
+     */
+    public void refreshPage() {
+        getDriver().navigate().refresh();
+    }
+
+
 }

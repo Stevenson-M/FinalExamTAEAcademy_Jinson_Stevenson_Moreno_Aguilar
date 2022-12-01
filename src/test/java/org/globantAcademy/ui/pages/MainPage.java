@@ -114,13 +114,6 @@ public class MainPage extends BasePage {
     }
 
     /**
-     * Method that refreshes the page.
-     */
-    public void refreshPage() {
-        getDriver().navigate().refresh();
-    }
-
-    /**
      * Method that changes to the banner iframe.
      */
     public void changeToIframe() {
