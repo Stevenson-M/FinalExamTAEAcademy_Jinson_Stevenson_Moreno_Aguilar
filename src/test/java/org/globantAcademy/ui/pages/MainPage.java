@@ -335,6 +335,8 @@ public class MainPage extends BasePage {
      * Method that hover on the user icon.
      */
     public void hoverGlobalUserMenu() {
+        waitForVisibility(globalUserMenu, 10);
+        waitForClickable(globalUserMenu);
         hoverElement(globalUserMenu);
     }
 

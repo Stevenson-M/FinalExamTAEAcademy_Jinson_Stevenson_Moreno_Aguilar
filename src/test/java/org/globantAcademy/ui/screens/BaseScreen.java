@@ -1,7 +1,7 @@
 package org.globantAcademy.ui.screens;
 
 
-import configuration.MobileOperations;
+import configuration.mobileConfigurations.MobileOperations;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 

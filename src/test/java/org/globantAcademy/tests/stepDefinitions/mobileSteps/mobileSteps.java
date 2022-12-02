@@ -1,29 +1,19 @@
-package org.globantAcademy.tests.stepDefinitions;
+package org.globantAcademy.tests.stepDefinitions.mobileSteps;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.globantAcademy.reporting.Reporter;
 import org.globantAcademy.ui.screens.*;
-import org.globantAcademy.utils.mobileCapabilities.ConfigCapabilities;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * Step definitions for mobile automation features.
  */
 public class mobileSteps {
 
-    public static AndroidDriver<AndroidElement> driver;
+
     private TutorialScreen tutorialScreen;
     private DashBoardScreen dashBoardScreen;
     private MapScreen mapScreen;
@@ -32,44 +22,16 @@ public class mobileSteps {
     private PrivacyAndLegalScreen privacyAndLegalScreen;
 
     private PlansOptionScreen plansOptionScreen;
+    private mobileHooks mobileHooks;
 
-    /**
-     * Method to set up the needed configuration before the execution of the test.
-     */
-    @Before
-    public void environmentSetUp(Scenario scenario) {
-        scenario.getSourceTagNames().stream().forEach(tag -> {
-            if (tag.equals("@mobile")){
-                DesiredCapabilities capabilities = new DesiredCapabilities();
-                ConfigCapabilities.deviceSetUp(capabilities);
-                ConfigCapabilities.applicationSetUp(capabilities);
-                try {
-                    driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-                } catch (MalformedURLException exception) {
-                    exception.printStackTrace();
-                }
-                tutorialScreen = new TutorialScreen(driver);
-            }
-        });
-    }
 
-    /**
-     * Method to close the driver after the execution of the test.
-     */
-    @After
-    public void mobileApplicationEnd(Scenario scenario) {
-        scenario.getSourceTagNames().stream().forEach(tag -> {
-            if (tag.equals("@mobile")){
-                driver.quit();
-            }
-        });
-    }
 
     /**
      * Method goes to the dashboard screen.
      */
     @Given("I'm in the Dashboard screen")
     public void im_in_the_dashboard_screen() {
+        tutorialScreen = new TutorialScreen(mobileHooks.getDriver());
         tutorialScreen.startPermissionsProcess();
         dashBoardScreen = tutorialScreen.shareLocationPermissions();
     }

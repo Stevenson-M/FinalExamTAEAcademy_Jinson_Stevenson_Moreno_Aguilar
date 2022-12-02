@@ -1,6 +1,6 @@
 package org.globantAcademy.ui.pages;
 
-import configuration.WebOperations;
+import configuration.webConfigurations.WebOperations;
 import org.openqa.selenium.WebDriver;
 
 /**

@@ -1,21 +1,14 @@
-package org.globantAcademy.tests.stepDefinitions;
+package org.globantAcademy.tests.stepDefinitions.webSteps;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import configuration.WebDriver;
 import org.globantAcademy.ui.pages.MainPage;
 import org.globantAcademy.reporting.Reporter;
 import org.globantAcademy.ui.pages.WatchPage;
-
 import org.testng.Assert;
 
-import static java.lang.String.format;
-import static java.lang.Thread.sleep;
 
 /**
  * Step definitions for the web tests.
@@ -24,49 +17,17 @@ public class webSteps {
 
     private MainPage mainPage;
 
-   private WatchPage watchPage;
+    private WatchPage watchPage;
 
-    private static final String URL = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
+    private webHooks webHooks;
 
-    private static WebDriver driver;
-
-    /**
-     * Method to set up the needed configuration before the execution of the test.
-     */
-    @Before
-    public static void setUp(Scenario scenario) {
-        scenario.getSourceTagNames().stream().forEach(tag -> {
-            if (tag.equals("@web")) {
-
-                Reporter.info("Deleting all cookies");
-                driver = new WebDriver();
-                driver.getDriver().manage().deleteAllCookies();
-            }
-        });
-    }
-
-    /**
-     * Method to close the browser after the execution of the test.
-     */
-    @After
-    public static void tearDown(Scenario scenario) {
-        scenario.getSourceTagNames().stream().forEach(tag -> {
-            if (tag.equals("@web")) {
-                Reporter.info("Closing the browser");
-                driver.getDriver().quit();
-            }
-        });
-    }
 
     /**
      * Method to open the browser and navigate to the main page.
      */
     @Given("I'm on the main page of the espn website")
     public void im_on_the_main_page_of_the_espn_website() {
-        Reporter.info(format("Navigating to %s", URL));
-        driver.getDriver().get(URL);
-        driver.getDriver().manage().window().maximize();
-        mainPage = new MainPage(driver.getDriver());
+        mainPage = new MainPage(webHooks.getDriver());
         mainPage.closeBanner();
     }
 
@@ -135,13 +96,13 @@ public class webSteps {
 
     }
 
-  /**
-   * Method that fills the sign up modal and creates an account.
-   */
-  @Then("I fill the form with valid data and create a new user successfully")
+    /**
+     * Method that fills the sign up modal and creates an account.
+     */
+    @Then("I fill the form with valid data and create a new user successfully")
     public void i_fill_the_form_with_valid_data() {
         mainPage.createUser();
-  }
+    }
 
     /**
      * Method that creates a new user.
@@ -194,7 +155,7 @@ public class webSteps {
         Reporter.info("Going back to main page...");
 
         watchPage.returnToMainPage();
- }
+    }
     /**
      * Method that validates the main page.
      */

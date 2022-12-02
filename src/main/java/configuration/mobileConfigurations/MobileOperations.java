@@ -1,4 +1,4 @@
-package configuration;
+package configuration.mobileConfigurations;
 
 
 import io.appium.java_client.android.AndroidDriver;
@@ -23,7 +23,9 @@ public abstract class MobileOperations {
 
     private final AndroidDriver<AndroidElement> driver;
 
-    private final long waitDuration = 10L;
+    private final long waitDuration = 5L;
+
+    private final long pollingDuration = 0L;
 
     /**
      * Constructor for the class.
@@ -33,7 +35,7 @@ public abstract class MobileOperations {
     public MobileOperations(AndroidDriver<AndroidElement> driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(
-                driver, Duration.ofSeconds(0)), this);
+                driver, Duration.ofSeconds(pollingDuration)), this);
     }
 
     /**
@@ -120,7 +122,8 @@ public abstract class MobileOperations {
      *
      * @param element the element to be checked.
      */
-    public boolean isSelected(AndroidElement element) {
+    public boolean isSelected(AndroidElement element,int timeout) {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
         return element.isSelected();
     }
 

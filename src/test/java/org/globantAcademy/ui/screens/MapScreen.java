@@ -8,6 +8,7 @@ import io.appium.java_client.pagefactory.HowToUseLocators;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static io.appium.java_client.pagefactory.LocatorGroupStrategy.ALL_POSSIBLE;
 
@@ -102,19 +103,10 @@ public class MapScreen extends BaseScreen {
      * @author Jinson.Moreno
      * Return true if the defaul option selected is 'Atractions', otherwise false.
      */
-    /**public boolean attractionIsDefaultOptionSelected() {
-
-        String selectedORNot = AttractionsCategory.getAttribute("selected");
-
-        return (selectedORNot .equalsIgnoreCase("true"))?true:false;
-    }*/
-
     public boolean attractionIsDefaultOptionSelected() {
-
-       isSelected(AttractionsCategory);
-
+        waitForVisibility(AttractionsCategory);
+        isSelected(AttractionsCategory,5);
         return true;
-
     }
 
     /**

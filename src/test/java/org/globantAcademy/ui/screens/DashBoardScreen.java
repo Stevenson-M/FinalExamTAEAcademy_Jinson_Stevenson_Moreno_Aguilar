@@ -43,10 +43,10 @@ public class DashBoardScreen extends BaseScreen {
      * Navigate to Login Screen from DashBoard Screen.
      */
     public MapScreen goToMapScreen() {
-        if (this.isElementAvailable(dismissWelcome, 25)){
+        if (this.isElementAvailable(dismissWelcome, 10)){
             click(dismissWelcome);
         }
-        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)){
+        if (this.isElementAvailable(dismissPreferenceUpdateButton, 10)){
             click(dismissPreferenceUpdateButton);
         }
         click(mapButton);
@@ -59,10 +59,10 @@ public class DashBoardScreen extends BaseScreen {
      * @author Jinson.Moreno
      */
     public GeneralMenuScreen goToGeneralMenuScreen() {
-        if (this.isElementAvailable(dismissWelcome, 25)){
+        if (this.isElementAvailable(dismissWelcome, 10)){
             click(dismissWelcome);
         }
-        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)){
+        if (this.isElementAvailable(dismissPreferenceUpdateButton, 10)){
             click(dismissPreferenceUpdateButton);
         }
         click(generalMenuButton);
@@ -75,10 +75,10 @@ public class DashBoardScreen extends BaseScreen {
      * @author Jinson.Moreno
      */
     public PlansOptionScreen goToPlansOptionScreen() {
-        if (this.isElementAvailable(dismissWelcome, 25)){
+        if (this.isElementAvailable(dismissWelcome, 10)){
             click(dismissWelcome);
         }
-        if (this.isElementAvailable(dismissPreferenceUpdateButton, 25)){
+        if (this.isElementAvailable(dismissPreferenceUpdateButton, 10)){
             click(dismissPreferenceUpdateButton);
         }
         click(plansOptionButton);

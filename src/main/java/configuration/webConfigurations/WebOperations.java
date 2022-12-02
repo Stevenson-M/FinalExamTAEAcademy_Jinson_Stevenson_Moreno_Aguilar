@@ -1,4 +1,4 @@
-package configuration;
+package configuration.webConfigurations;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ import static org.openqa.selenium.support.PageFactory.initElements;
 public abstract class WebOperations {
     private final WebDriver driver;
     private final WebDriverWait wait;
-    private final long timeout = 10L;
+    private final long timeout = 0L;
 
     /**
      * Constructor for the class.
