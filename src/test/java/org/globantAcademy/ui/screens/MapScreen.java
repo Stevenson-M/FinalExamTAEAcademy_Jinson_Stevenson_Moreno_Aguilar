@@ -81,7 +81,6 @@ public class MapScreen extends BaseScreen {
      * open category list menu.
      */
     public void clickListCategories() {
-        waitForVisibility(showListButton);
         click(categoryList);
     }
 
@@ -93,9 +92,9 @@ public class MapScreen extends BaseScreen {
         List<String> expectedOptions = new ArrayList<>();
         Collections.addAll(expectedOptions,"Attractions", "Characters", "Dining", "Entertainment", "Restrooms", "Events and Tours", "PhotoPass", "Guest Services", "Shops", "Hotels", "Spa and Recreation");
         List<String> actualOptions = new ArrayList<>();
-
-        listCategories.stream().forEach(element -> actualOptions.add(element.getText()));
-
+        for (AndroidElement option : listCategories) {
+            actualOptions.add(option.getText());
+        }
         return actualOptions.equals(expectedOptions);
     }
 

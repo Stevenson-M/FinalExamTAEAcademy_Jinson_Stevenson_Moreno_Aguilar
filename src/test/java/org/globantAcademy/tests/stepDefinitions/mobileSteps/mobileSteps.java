@@ -25,7 +25,6 @@ public class mobileSteps {
     private mobileHooks mobileHooks;
 
 
-
     /**
      * Method goes to the dashboard screen.
      */
