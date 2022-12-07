@@ -1,0 +1,11 @@
+{
+	"deviceName": "emulator-5554",
+	"platformName": "Android",
+	"platformVersion": "9",
+	"appPackage": "com.disney.wdpro.dlr",
+	"appActivity": "com.disney.wdpro.park.activities.SplashActivity",
+	"app": "C:/Users/jinson.moreno/Desktop/apps/DisneylandÂ®_7.17_Apkpure.apk",
+	"automationName": "UiAutomator2",
+	"autoGrantPermissions": "true",
+    "skipServerInstallation": "true"
+}
