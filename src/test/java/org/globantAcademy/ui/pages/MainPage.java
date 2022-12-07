@@ -272,7 +272,7 @@ public class MainPage extends BasePage {
      * @return String email
      */
     public String emailRandom() {
-        String email = "test.stevenson.prueba" + (int) (Math.random() * 100000) + "@gmail.com";
+        String email = "test.stevenson.prueba" + (int) (Math.random() * 1000000) + "@gmail.com";
 
         return email;
     }
@@ -307,7 +307,7 @@ public class MainPage extends BasePage {
         typeOnInput(lastNameInputSingUpIframe,lastName);
         clickEmailInputSingUpIframe();
         typeOnInput(emailInputSingUpIframe,emailRandom());
-        String password = faker.internet().password();
+        String password = faker.internet().password(10,20,true,true,true);
         clickPasswordInputSingUpIframe();
         typeOnInput(passwordInputSingUpIframe,password);
         clickSingUpConfirmationIframeButton();

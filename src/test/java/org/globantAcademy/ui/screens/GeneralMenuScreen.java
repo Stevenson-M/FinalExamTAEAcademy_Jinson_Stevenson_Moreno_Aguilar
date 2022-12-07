@@ -43,12 +43,21 @@ public class GeneralMenuScreen extends BaseScreen {
      */
     public boolean isMenuOptionsCorrect() {
         List<String> expectedOptions = new ArrayList<>();
-        Collections.addAll(expectedOptions, "My Profile", "Property Rules", "Cast Compliment", "Link to Account", "Car Locator", "Help", "Privacy & Legal");
-        List<String> actualOptions = new ArrayList<>();
-
-        generalMenuOptions.stream().forEach(element -> actualOptions.add(element.getText()));
-
-        return actualOptions.equals(expectedOptions);
+        List<Boolean> isCorrect = new ArrayList<>();
+        Collections.addAll(expectedOptions,
+                "My Profile",
+                "Property Rules",
+                "Cast Compliment",
+                "Link to Account",
+                "Car Locator",
+                "Help",
+                "Privacy & Legal"
+        );
+        super.waitForVisibilityOfAll(this.generalMenuOptions);
+        for (int i = 0; i < this.generalMenuOptions.size() ; i++) {
+            isCorrect.add(this.generalMenuOptions.get(i).getText().equals(expectedOptions.get(i)));
+        }
+        return !isCorrect.contains(false);
     }
 
     /**

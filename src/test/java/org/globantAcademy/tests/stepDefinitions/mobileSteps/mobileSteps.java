@@ -71,18 +71,9 @@ public class mobileSteps {
     }
 
     /**
-     * Method that validates the category list in the map screen.
-     */
-    @Then("the category list should be displayed")
-    public void the_category_list_should_be_displayed() {
-        Reporter.info("Validate List Categories");
-        Assert.assertTrue(mapScreen.isListCategoriesDisplayedAndOk(), "List Categories not available");
-    }
-
-    /**
      * Method that checks if the cateogry attractions is selected by default.
      */
-    @And("Attraction category should be selected by default")
+    @Then("Attraction category should be selected by default")
     public void attraction_category_should_be_selected_by_default() {
         Reporter.info("Validate Default Category 'Attractions'  is selected");
         Assert.assertTrue(mapScreen.attractionIsDefaultOptionSelected(), "Default Category is not selected");

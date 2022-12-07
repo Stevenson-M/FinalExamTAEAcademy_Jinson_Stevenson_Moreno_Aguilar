@@ -15,8 +15,7 @@ Feature: Disney app navigation review
         Scenario: Verify Map menu category list
                 Given I'm in the Map screen
                 When I click the category button
-                Then the category list should be displayed
-                And Attraction category should be selected by default
+                Then Attraction category should be selected by default
                 And Hotels category should available in the list
 
         Scenario: Verify menu dashboard screen
