@@ -13,14 +13,11 @@ import org.testng.Assert;
  */
 public class mobileSteps {
 
-
     private TutorialScreen tutorialScreen;
     private DashBoardScreen dashBoardScreen;
     private MapScreen mapScreen;
     private GeneralMenuScreen generalMenuScreen;
-
     private PrivacyAndLegalScreen privacyAndLegalScreen;
-
     private PlansOptionScreen plansOptionScreen;
     private mobileHooks mobileHooks;
 

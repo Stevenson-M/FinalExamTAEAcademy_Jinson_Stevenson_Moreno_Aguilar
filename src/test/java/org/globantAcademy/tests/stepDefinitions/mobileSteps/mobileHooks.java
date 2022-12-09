@@ -14,7 +14,7 @@ import java.net.URL;
 
 public class mobileHooks {
 
-    public static MobileDriver driver;
+    private static MobileDriver driver;
 
 
     /**
@@ -56,6 +56,4 @@ public class mobileHooks {
     public static AndroidDriver<AndroidElement> getDriver() {
         return driver.getDriver();
     }
-
-
 }
