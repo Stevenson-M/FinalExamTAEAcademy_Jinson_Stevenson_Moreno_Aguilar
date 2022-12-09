@@ -16,9 +16,7 @@ import org.testng.Assert;
 public class webSteps {
 
     private MainPage mainPage;
-
     private WatchPage watchPage;
-
     private webHooks webHooks;
 
 
